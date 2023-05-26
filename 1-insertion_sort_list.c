@@ -5,55 +5,55 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *first, *last, *tmp;
+	listint_t *first, *last, *tmp;
 
-    if (!list || !*list)
+	if (!list || !*list)
 
-        return;
+		return;
 
-    last = (*list);
+	last = (*list);
 
-    first = (*list)->next;
+	first = (*list)->next;
 
-    while (first)
+	while (first)
 
-    {
+	{
 
-        while (last && first->n < last->n)
+		while (last && first->n < last->n)
 
-        {
+		{
 
-            if (last->prev)
+			if (last->prev)
 
-                last->prev->next = first;
+				last->prev->next = first;
 
-            else
+			else
 
-                *list = first;
+				*list = first;
 
-            if (first->next)
+			if (first->next)
 
-                first->next->prev = last;
+				first->next->prev = last;
 
-            tmp = first->next;
+			tmp = first->next;
 
-            first->next = last;
+			first->next = last;
 
-            first->prev = last->prev;
+			first->prev = last->prev;
 
-            last->next = tmp;
+			last->next = tmp;
 
-            last->prev = first;
+			last->prev = first;
 
-            print_list(*list);
+			print_list(*list);
 
-            last = first->prev;
-        }
+			last = first->prev;
+		}
 
-        first = first->next;
+		first = first->next;
 
-        if (first)
+		if (first)
 
-            last = first->prev;
-    }
+			last = first->prev;
+	}
 }
